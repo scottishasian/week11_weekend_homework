@@ -4,11 +4,21 @@ var Task = require('../task.js');
 describe('Task', function() {
   let getBucket;
   let smashPot;
+  let callback;
 
   beforeEach(function() {
-    getBucket = new Task("Hard", "Urgent", "Cheese");
+
+    callback = function() {
+      return `I completed the quest: ${this.quest}.`;
+    }
+
+    getBucket = new Task("Get a bucket","Hard", "Urgent", "Cheese", callback);
     //, callback put callbacks in constructor later.
-    smashPot = new Task("Easy", "Not Urgent", "T-shirt");
+    smashPot = new Task("Smash a pot","Easy", "Not Urgent", "T-shirt", callback);
+  })
+
+  it("Should have quest specs", function() {
+    assert.strictEqual(getBucket.quest, "Get a bucket")
   })
 
   it("Should have difficulty", function() {
@@ -30,6 +40,12 @@ describe('Task', function() {
   it("Should be able to check if complete", function() {
         smashPot.completeTask();
         assert.strictEqual(smashPot.complete, true)
+  })
+
+  it("Should be able to do task", function() {
+        const result = smashPot.doTask();
+        assert.strictEqual(result, 'I completed the quest: Smash a pot.');
+        assert.strictEqual(smashPot.complete, true);
   })
 
 })

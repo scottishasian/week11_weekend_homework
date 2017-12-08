@@ -1,9 +1,16 @@
-const Task = function(difficultyLevel, urgencyLevel, reward) {
+const Task = function(quest, difficultyLevel, urgencyLevel, reward, action) {
+  this.quest = quest;
   this.difficultyLevel = difficultyLevel;
   this.urgencyLevel = urgencyLevel;
   this.reward = reward;
   this.complete = false;
-  // this.callback = callback;
+  this.action = action;
+}
+
+Task.prototype.doTask = function() {
+  let result = this.action();
+  this.completeTask();
+  return result;
 }
 
 Task.prototype.completeTask = function() {
