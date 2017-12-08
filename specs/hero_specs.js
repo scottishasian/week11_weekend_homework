@@ -21,6 +21,10 @@ describe('Hero', function() {
     assert.strictEqual(hero.favouriteFood, "Cheese")
   });
 
+  it("Should be able to talk", function() {
+    assert.strictEqual(hero.speech(), "Burnt Face Man says \"Thats not crime, that is just a box with crime written on it.\"")
+  });
+
 
 
 });
