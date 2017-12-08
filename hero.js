@@ -3,6 +3,7 @@ const Hero = function(name, favouriteFood, speech) {
   this.health = 100;
   this.favouriteFood = favouriteFood;
   this.tasks = [];
+  this.inventory = [];
   this.speech = speech;
 }
 

@@ -6,6 +6,9 @@ const Task = function(difficultyLevel, urgencyLevel, reward) {
   // this.callback = callback;
 }
 
+Task.prototype.completeTask = function() {
+  this.complete = !this.complete; //toggle function
+}
 
 
 

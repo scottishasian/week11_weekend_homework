@@ -34,6 +34,10 @@ describe('Hero', function() {
     assert.strictEqual(hero.tasks.length, 0)
   });
 
+  it("Should have an empty list of tasks", function() {
+    assert.strictEqual(hero.inventory.length, 0)
+  });
+
 
 
 });
