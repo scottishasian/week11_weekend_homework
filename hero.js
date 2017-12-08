@@ -3,7 +3,7 @@ const Hero = function(name, favouriteFood, speech) {
   this.health = 100;
   this.favouriteFood = favouriteFood;
   this.tasks = [];
-  this.inventory = [];
+  this.balance = 0;
   this.speech = speech;
 }
 
@@ -18,6 +18,10 @@ Hero.prototype.eatFood = function(food) {
   }else{
     this.health += food.healingValue;
   }
+}
+
+Hero.prototype.getTask = function(task) {
+  this.tasks.push(task);
 }
 
 module.exports = Hero;

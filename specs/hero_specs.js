@@ -11,9 +11,15 @@ describe('Hero', function() {
   let cake;
 
   beforeEach(function() {
+
+    callback = function() {
+      return `I completed the quest: ${this.quest}.`;
+    }
+    
     hero = new Hero("Burnt Face Man", "Brie", "\"Thats not crime, that is just a box with crime written on it.\"");
     cheese = new Food("Brie", 10);
     cake = new Food("Cake", 5);
+    getBucket = new Task("Get a bucket","Hard", "Urgent", 100, callback);
   })
 
   it("Should have a name", function() {
@@ -37,22 +43,29 @@ describe('Hero', function() {
   });
 
   it("Should have an empty list of tasks", function() {
-    assert.strictEqual(hero.tasks.length, 0)
+    assert.strictEqual(hero.tasks.length, 0);
   });
 
-  it("Should have an empty list of tasks", function() {
-    assert.strictEqual(hero.inventory.length, 0)
+  it("Should have an empty balance", function() {
+    assert.strictEqual(hero.balance, 0);
   });
 
   it("Should be able to eat food", function() {
     hero.eatFood(cake);
-    assert.strictEqual(hero.health, 105)
+    assert.strictEqual(hero.health, 105);
   });
 
   it("Should give more health if favourite food", function() {
     hero.eatFood(cheese);
-    assert.strictEqual(hero.health, 115)
+    assert.strictEqual(hero.health, 115);
   })
+
+  it("Should have one task", function() {
+    hero.getTask(getBucket);
+    assert.strictEqual(hero.tasks.length, 1);
+  })
+
+
 
 
 
