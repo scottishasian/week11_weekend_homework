@@ -25,6 +25,10 @@ describe('Hero', function() {
     assert.strictEqual(hero.speech(), "Burnt Face Man says \"Thats not crime, that is just a box with crime written on it.\"")
   });
 
+  it("Should have an empty list of tasks", function() {
+    assert.strictEqual(hero.tasks.length, 0)
+  });
+
 
 
 });
