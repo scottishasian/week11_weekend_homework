@@ -1,12 +1,13 @@
 var assert = require('assert');
 var Hero = require('../hero.js');
+var Task = require('../task.js');
 
 describe('Hero', function() {
 
   let hero;
 
   beforeEach(function() {
-    hero = new Hero("Burnt Face Man", "Cheese");
+    hero = new Hero("Burnt Face Man", "Cheese", "\"Thats not crime, that is just a box with crime written on it.\"");
   })
 
   it("Should have a name", function() {
@@ -22,7 +23,7 @@ describe('Hero', function() {
   });
 
   it("Should be able to talk", function() {
-    assert.strictEqual(hero.speech(), "Burnt Face Man says \"Thats not crime, that is just a box with crime written on it.\"")
+    assert.strictEqual(hero.talk(), "Burnt Face Man says \"Thats not crime, that is just a box with crime written on it.\"")
   });
 
   it("Should have an empty list of tasks", function() {
