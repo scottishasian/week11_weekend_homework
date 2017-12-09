@@ -15,7 +15,7 @@ describe('Hero', function() {
     callback = function() {
       return `I completed the quest: ${this.quest}.`;
     }
-    
+
     hero = new Hero("Burnt Face Man", "Brie", "\"Thats not crime, that is just a box with crime written on it.\"");
     cheese = new Food("Brie", 10);
     cake = new Food("Cake", 5);
@@ -63,6 +63,14 @@ describe('Hero', function() {
   it("Should have one task", function() {
     hero.getTask(getBucket);
     assert.strictEqual(hero.tasks.length, 1);
+  })
+
+  it("Should be able to complete a task", function() {
+    hero.getTask(getBucket);
+    assert.strictEqual(hero.tasks.length, 1);
+    hero.completeTask("Get a bucket");
+    assert.strictEqual(getBucket.complete, true);
+    assert.strictEqual(hero.balance, 100);
   })
 
 
