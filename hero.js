@@ -23,13 +23,16 @@ Hero.prototype.eatFood = function(food) {
 Hero.prototype.getTask = function(task) {
   this.tasks.push(task);
 }
+
 Hero.prototype.completeTask = function(task) {
+  let rewardValue = 0;
   let goal = this.tasks.forEach(function(objective){
     if(objective.quest === task){
-      this.balance += objective.reward;
+      rewardValue += objective.reward;
       objective.doTask(); //Does not add to balance.
     }
   });
+  this.balance += rewardValue;
 }
 
 module.exports = Hero;
