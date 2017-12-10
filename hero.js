@@ -36,10 +36,17 @@ Hero.prototype.completeTask = function(task) {
 }
 
 Hero.prototype.checkTasks = function(completed) {
-  let result = this.tasks.filter(function(task) {
-    return (task.complete === true);
-  })
-  return result;  
+  if(completed === "Complete" ) {
+    let result = this.tasks.filter(function(task) {
+      return (task.complete === true);
+    })
+    return result;
+  } else if (completed === "Incomplete") {
+    let result = this.tasks.filter(function(task) {
+      return (task.complete === false);
+    })
+    return result;
+  }
 }
 
 module.exports = Hero;

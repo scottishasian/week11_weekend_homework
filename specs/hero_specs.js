@@ -92,10 +92,14 @@ describe('Hero', function() {
     assert.deepStrictEqual(result, [getChicken])
   });
 
-  xit("Should be able to see incomplete tasks", function() {
+  it("Should be able to see incomplete tasks", function() {
     hero.getTask(getBucket);
     hero.getTask(getChicken);
     assert.strictEqual(hero.tasks.length, 2);
+    hero.completeTask("Get a Chicken");
+    assert.strictEqual(getChicken.complete, true);
+    let result = hero.checkTasks("Incomplete");
+    assert.deepStrictEqual(result, [getBucket])
   });
 
 
