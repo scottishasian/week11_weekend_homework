@@ -29,10 +29,17 @@ Hero.prototype.completeTask = function(task) {
   let goal = this.tasks.forEach(function(objective){
     if(objective.quest === task){
       rewardValue += objective.reward;
-      objective.doTask(); //Does not add to balance.
+      objective.doTask();
     }
   });
   this.balance += rewardValue;
+}
+
+Hero.prototype.checkTasks = function(completed) {
+  let result = this.tasks.filter(function(task) {
+    return (task.complete === true);
+  })
+  return result;  
 }
 
 module.exports = Hero;

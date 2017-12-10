@@ -12,9 +12,9 @@ describe('Task', function() {
       return `I completed the quest: ${this.quest}.`;
     }
 
-    getBucket = new Task("Get a bucket","Hard", "Urgent", 100, callback);
+    getBucket = new Task("Get a bucket", 3, "Urgent", 100, callback);
     //, callback put callbacks in constructor later.
-    smashPot = new Task("Smash a pot","Easy", "Not Urgent", 30, callback);
+    smashPot = new Task("Smash a pot", 1, "Not Urgent", 30, callback);
   })
 
   it("Should have quest specs", function() {
@@ -22,7 +22,7 @@ describe('Task', function() {
   })
 
   it("Should have difficulty", function() {
-    assert.strictEqual(getBucket.difficultyLevel, "Hard")
+    assert.strictEqual(getBucket.difficultyLevel, 3)
   })
 
   it("Should have urgency level", function() {

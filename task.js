@@ -5,6 +5,9 @@ const Task = function(quest, difficultyLevel, urgencyLevel, reward, action) {
   this.reward = reward;
   this.complete = false;
   this.action = action;
+
+  // let difficultyArray = { "a": "Easy", "b":"Medium", "c":"Hard"}
+
 }
 
 Task.prototype.doTask = function() {

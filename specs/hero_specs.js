@@ -19,7 +19,8 @@ describe('Hero', function() {
     hero = new Hero("Burnt Face Man", "Brie", "\"Thats not crime, that is just a box with crime written on it.\"");
     cheese = new Food("Brie", 10);
     cake = new Food("Cake", 5);
-    getBucket = new Task("Get a bucket","Hard", "Urgent", 100, callback);
+    getBucket = new Task("Get a bucket", 3, "Urgent", 100, callback);
+    getChicken = new Task("Get a Chicken", 1, "Not Urgent", 20, callback);
   })
 
   it("Should have a name", function() {
@@ -72,6 +73,30 @@ describe('Hero', function() {
     assert.strictEqual(getBucket.complete, true);
     assert.strictEqual(hero.balance, 100);
   })
+
+  xit("Should be able to sort tasks", function() {
+    hero.getTask(getBucket);
+    hero.getTask(getChicken);
+    assert.strictEqual(hero.tasks.length, 2);
+    let result = hero.sortTasks();
+    assert.deepStrictEqual(result, [getChicken, getBucket]);
+  })
+
+  it("Should be able to see completed tasks", function() {
+    hero.getTask(getBucket);
+    hero.getTask(getChicken);
+    assert.strictEqual(hero.tasks.length, 2);
+    hero.completeTask("Get a Chicken");
+    assert.strictEqual(getChicken.complete, true);
+    let result = hero.checkTasks("Complete");
+    assert.deepStrictEqual(result, [getChicken])
+  });
+
+  xit("Should be able to see incomplete tasks", function() {
+    hero.getTask(getBucket);
+    hero.getTask(getChicken);
+    assert.strictEqual(hero.tasks.length, 2);
+  });
 
 
 
