@@ -17,5 +17,9 @@ describe('Food', function() {
     assert.strictEqual(cheese.healingValue, 10)
   })
 
+  it("Should not be poisoned", function() {
+    assert.strictEqual(cheese.isPoisoned, false)
+  })
+
 
 })
