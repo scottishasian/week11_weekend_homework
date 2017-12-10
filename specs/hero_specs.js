@@ -74,7 +74,7 @@ describe('Hero', function() {
     assert.strictEqual(hero.balance, 100);
   })
 
-  xit("Should be able to sort tasks", function() {
+  it("Should be able to sort tasks", function() {
     hero.getTask(getBucket);
     hero.getTask(getChicken);
     assert.strictEqual(hero.tasks.length, 2);

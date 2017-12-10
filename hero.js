@@ -49,4 +49,11 @@ Hero.prototype.checkTasks = function(completed) {
   }
 }
 
+Hero.prototype.sortTasks = function() {
+  let result = this.tasks.sort(function(a, b){
+    return parseInt(a.difficultyLevel) - parseInt(b.difficultyLevel);
+  })
+  return result;
+}
+
 module.exports = Hero;
